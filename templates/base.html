@@ -1,7 +1,8 @@
-{% load static %}
+  {% load static %}
 
 
-<head>
+  
+  <head>
     <!-- Basic -->
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -14,19 +15,18 @@
   
     <title>Teaser</title>
   
-  
     <!-- bootstrap core css -->
     <link rel="stylesheet" type="text/css" href="{% static '/css/bootstrap.css' %}" />
   
     <!-- fonts style -->
-    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700|Raleway:400,700&display=swap" rel="stylesheet">
+    <link href="{% static '/https://fonts.googleapis.com/css?family=Poppins:400,700|Raleway:400,700&display=swap' %}" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="{% static '/css/style.css' %}" rel="stylesheet" />
     <!-- responsive style -->
     <link href="{% static '/css/responsive.css' %}" rel="stylesheet" />
   </head>
   
-  <body class="sub_page">
+  <body>
     <div class="hero_area">
       <!-- header section strats -->
       <header class="header_section">
@@ -76,7 +76,6 @@
         </div>
       </header>
       <!-- end header section -->
-    </div>
   
   
     {% block content %}
