@@ -2,7 +2,6 @@
 {% load static %}
 {% block content %}
 
-
 <head>
   <!-- Basic -->
   <meta charset="utf-8" />
@@ -26,6 +25,7 @@
   <!-- responsive style -->
   <link href="{% static '/css/responsive.css' %}" rel="stylesheet" />
 </head>
+
 
 <body>
  
@@ -384,7 +384,7 @@
     <div class="container">
       <div class="heading_container">
         <h2>
-          Why Choose Us
+          Почему выбирают нас?
         </h2>
       </div>
       <div class="row">
@@ -398,7 +398,7 @@
                 1000+
               </h3>
               <h5>
-                Years of House
+                Дома в год
               </h5>
             </div>
           </div>
@@ -413,7 +413,7 @@
                 20000+
               </h3>
               <h5>
-                Projects Delivered
+                Реализованные проекты
               </h5>
             </div>
           </div>
@@ -427,8 +427,8 @@
               <h3>
                 10000+
               </h3>
-              <h5>
-                Satisfied Customers
+              <h5>                
+                Довольные клиенты
               </h5>
             </div>
           </div>
@@ -443,15 +443,15 @@
                 1500+
               </h3>
               <h5>
-                Cheap Rates
+                Дешевые цены
               </h5>
             </div>
           </div>
         </div>
       </div>
       <div class="btn-box">
-        <a href="">
-          Get A Quote
+        <a href="{% url 'contacts' %}">
+          Получить предложение
         </a>
       </div>
     </div>
@@ -546,7 +546,7 @@
     <div class="container">
       <div class="heading_container">
         <h2>
-          Get In Touch
+          Связь с нами
         </h2>
       </div>
     </div>
@@ -561,24 +561,31 @@
         </div>
         <div class="col-lg-4 col-md-5 ">
           <div class="form_container">
-            <form action="">
-              <div>
-                <input type="text" placeholder="Name" />
-              </div>
-              <div>
-                <input type="email" placeholder="Email" />
-              </div>
-              <div>
-                <input type="text" placeholder="Phone Number" />
-              </div>
-              <div>
-                <input type="text" class="message-box" placeholder="Message" />
-              </div>
-              <div class="d-flex ">
-                <button>
-                  Send
-                </button>
-              </div>
+            <form action="" method="post">
+              {% csrf_token %}
+              {% if success %}
+                  <div class="alert alert-danger">
+                    <strong>Спасибо за отклик!</strong>
+                  </div>
+              {% else %}    
+                  <div>
+                    {{ form.name }}
+                  </div>
+                  <div>
+                    {{ form.email }}
+                  </div>
+                  <div>
+                    {{ form.number }}
+                  </div>
+                  <div>
+                    {{ form.message }}
+                    </div>
+                  <div class="d-flex ">
+                    <button>
+                     Отправить 
+                    </button>
+                  </div>
+                {% endif %}
             </form>
           </div>
         </div>
@@ -710,4 +717,3 @@
   <!-- end info_section -->
 
 {% endblock %}
-    

@@ -9,7 +9,7 @@
     <div class="container">
       <div class="heading_container">
         <h2>
-          Get In Touch
+          Связь с нами
         </h2>
       </div>
     </div>
@@ -24,24 +24,31 @@
         </div>
         <div class="col-lg-4 col-md-5 ">
           <div class="form_container">
-            <form action="">
-              <div>
-                <input type="text" placeholder="Name" />
-              </div>
-              <div>
-                <input type="email" placeholder="Email" />
-              </div>
-              <div>
-                <input type="text" placeholder="Phone Number" />
-              </div>
-              <div>
-                <input type="text" class="message-box" placeholder="Message" />
-              </div>
-              <div class="d-flex ">
-                <button>
-                  Send
-                </button>
-              </div>
+            <form action="" method="post">
+                {% csrf_token %}
+                {% if success %}
+                    <div class="alert alert-danger">
+                      <strong>Спасибо за отклик!</strong>
+                    </div>
+                {% else %}
+                    <div>
+                      {{ form.name }}
+                    </div>
+                    <div>
+                      {{ form.email }}
+                    </div>
+                    <div>
+                      {{ form.number }}
+                    </div>
+                    <div>
+                      {{ form.message }}
+                    </div>
+                    <div class="d-flex ">
+                      <button>
+                          Отправить
+                      </button>
+                    </div>
+                {% endif %}
             </form>
           </div>
         </div>

@@ -15,3 +15,13 @@ class AboutApartment(models.Model):
 
     def __str__(self):
         return self.about 
+
+
+class Contact(models.Model):
+    name = models.CharField(max_length=200)
+    email = models.EmailField()
+    number = models.IntegerField()
+    message = models.TextField()
+    
+    def str(self):
+        return self.message
