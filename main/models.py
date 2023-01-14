@@ -25,3 +25,12 @@ class Contact(models.Model):
     
     def str(self):
         return self.message
+
+
+class ClientFeedback(models.Model):
+    name = models.CharField("Имя", max_length=100)
+    feedback = models.TextField("Отзыв")
+    # img = models.ImageField(upload_to='image')
+
+    def __str__(self):
+        return self.name         

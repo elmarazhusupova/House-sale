@@ -7,11 +7,11 @@ from django.core.mail import EmailMultiAlternatives
 
 
 
-
 def index(request):
     banner = Banner.objects.all()
     about = AboutApartment.objects.all()
-    content = {'banner': banner, 'about':about}
+    feedback = ClientFeedback.objects.all()
+    content = {'banner': banner, 'about':about, 'feedback':feedback}
     return render(request, 'index.html', content)
 
 
@@ -50,4 +50,9 @@ def send_message(name, email, number, message):
     msg.attach_alternative(html_content, 'text/html')
     msg.send()
 
+
+def feedbacck(request):
+    name = ClientFeedback.objects.all()
+    content = {'name':name}
+    return render(request, content)
 
