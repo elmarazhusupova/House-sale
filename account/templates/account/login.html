@@ -1,4 +1,4 @@
-{% extends 'account/register.html' %}
+<!-- {% extends 'account/register.html' %} -->
 
 
 <style>
@@ -27,15 +27,14 @@
 
 </style>
 {% block content %}
-
  <div class="login">
-				<form action="" method="POST">                    
-                    {% csrf_token %}
-					    <label for="chk" aria-hidden="true">Login</label>
-					    {{ form.username }}
-					    {{ form.password1 }}
-					    <button>Login</button>
+				<form action="" method="POST">
+				{% csrf_token %}
+
+					<label for="chk" aria-hidden="true">Login</label>
+					<input type="email" name="email" placeholder="E-mail" required="">
+					<input type="password" name="password" placeholder="Password" required="">
+					<button>Login</button>
 				</form>
 			</div>
-
 {% endblock content %}
