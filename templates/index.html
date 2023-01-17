@@ -194,17 +194,17 @@
   </section>
 
   <!-- end sale section -->
-
+  
   <!-- price section -->
 
   <section class="price_section layout_padding-bottom">
     <div class="container">
       <div class="heading_container">
         <h2>
-          Our Pricing
+          Наши цены 
         </h2>
         <p>
-          There are many variations of passages of Lorem Ipsum available, but the
+          Стоимость услуги может различаться от пакета
         </p>
       </div>
       <div class="price_container">
@@ -215,38 +215,32 @@
                 01
               </h4>
               <h6>
-                Basic
+                База
               </h6>
             </div>
             <div class="text-box">
               <h2>
-                $1000.00
+                $50
               </h2>
               <ul>
                 <li>
-                  variations of
+                  Найдем комфротное
                 </li>
                 <li>
-                  passages of Lorem
+                  жилье в течении 7-10 дней
                 </li>
                 <li>
-                  Ipsum available,
+                  Варианты от 3-6
                 </li>
                 <li>
-                  but the majority
-                </li>
-                <li>
-                  have suffered
-                </li>
-                <li>
-                  alteration in
+                  квартир. 
                 </li>
               </ul>
             </div>
           </div>
           <div class="btn-box">
             <a href="">
-              Buy Now
+              Купить
             </a>
           </div>
         </div>
@@ -257,38 +251,38 @@
                 02
               </h4>
               <h6>
-                Standard
+                Стандарт
               </h6>
             </div>
             <div class="text-box">
               <h2>
-                $2000.00
+                $80
               </h2>
               <ul>
                 <li>
-                  variations of
+                  Варианты квартир от 7
                 </li>
                 <li>
-                  passages of Lorem
+                  до 10. Рассматривается
                 </li>
                 <li>
-                  Ipsum available,
+                  потребности клиента
                 </li>
                 <li>
-                  but the majority
+                  Время нахождение от 5-7 
                 </li>
                 <li>
-                  have suffered
+                  дней
                 </li>
                 <li>
-                  alteration in
+                  
                 </li>
               </ul>
             </div>
           </div>
           <div class="btn-box">
             <a href="">
-              Buy Now
+              Купить
             </a>
           </div>
         </div>
@@ -299,38 +293,38 @@
                 03
               </h4>
               <h6>
-                Premium
+                Премиум
               </h6>
             </div>
             <div class="text-box">
               <h2>
-                $3000.00
+                $100
               </h2>
               <ul>
                 <li>
-                  variations of
+                  Ищем квартиру по желанию клиента,
                 </li>
                 <li>
-                  passages of Lorem
+                  в течении 3 дней найдем жилье
                 </li>
                 <li>
-                  Ipsum available,
+                  Помощь в населении
                 </li>
                 <li>
-                  but the majority
+                  Варианты квартир от 10 до 15
                 </li>
                 <li>
-                  have suffered
+                  связь с нами 24/7 доступно 
                 </li>
                 <li>
-                  alteration in
+                 Даем гарантию на переезд
                 </li>
               </ul>
             </div>
           </div>
           <div class="btn-box">
             <a href="">
-              Buy Now
+              Купить
             </a>
           </div>
         </div>
@@ -346,18 +340,18 @@
       <div class="row">
         <div class="col-md-6">
           <div class="detail-box">
+            {% for d in banner2 %}
             <div class="heading_container">
               <h2>
-                Very Good Deal For House
-              </h2>
+                {{ d.banner }}
+             </h2>
             </div>
             <p>
-              There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
-              in
-              some form, by injected humour, or randomised words which don't look even slightly believable.
+             {{ d.desc }}
             </p>
-            <a href="">
-              Get A Quote
+            {% endfor %}
+            <a href="{% url 'contacts' %}">
+              Получить предложение
             </a>
           </div>
         </div>
@@ -465,7 +459,7 @@
   <div class="container-fluid">
     <div class="heading_container">
       <h2>
-        What is Says Our Customer
+       Отзывы наших клиентов
       </h2>
     </div>
     {% for f in feedback %}
@@ -571,14 +565,14 @@
         <div class="col-md-3">
           <div class="info_contact">
             <h5>
-              About Apartment
+              Наши контакты
             </h5>
             <div>
               <div class="img-box">
                 <img src="{% static '/images/location.png' %}" width="18px" alt="">
               </div>
               <p>
-                Address
+                Ахунбаева 21А
               </p>
             </div>
             <div>
@@ -586,7 +580,7 @@
                   <img src="{% static '/images/phone.png' %}" width="12px" alt="">
               </div>
               <p>
-                +01 1234567890
+                +996 222-350-031
               </p>
             </div>
             <div>
@@ -602,10 +596,11 @@
         <div class="col-md-3">
           <div class="info_info">
             <h5>
-              Information
+              Информация
             </h5>
             <p>
-              ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+               Поможем вам найти квартиру быстро и легко!
+               Обращайтесь в любое время, работаем 24/7 для вас
             </p>
           </div>
         </div>
@@ -613,73 +608,55 @@
         <div class="col-md-3">
           <div class="info_links">
             <h5>
-              Useful Link
+              Полезные ссылки
             </h5>
             <ul>
               <li>
-                <a href="">
-                  There are many
+                <a href="https://www.instagram.com">
+                  Instagram
                 </a>
               </li>
               <li>
-                <a href="">
-                  variations of
+                <a href="https://www.youtube.com">
+                  YouTube
                 </a>
               </li>
               <li>
-                <a href="">
-                  passages of
+                <a href="https://www.twitter.com">
+                  Twitter
                 </a>
               </li>
               <li>
-                <a href="">
-                  Lorem Ipsum
-                </a>
-              </li>
-              <li>
-                <a href="">
-                  available, but
-                </a>
-              </li>
-              <li>
-                <a href="">
-                  the i
+                <a href="https://www.facebook.com">
+                  Facebook
                 </a>
               </li>
             </ul>
           </div>
         </div>
-        <div class="col-md-3">
-          <div class="info_form ">
-            <h5>
-              Newsletter
-            </h5>
-            <form action="">
-              <input type="email" placeholder="Enter your email">
-              <button>
-                Subscribe
-              </button>
-            </form>
-            <div class="social_box">
-              <a href="">
-                <img src="{% static '/images/fb.png' %}" alt="">
-              </a>
-              <a href="">
-                <img src="{% static '/images/twitter.png' %}" alt="">
-              </a>
-              <a href="">
-                <img src="{% static '/images/linkedin.png' %}" alt="">
-              </a>
-              <a href="">
-                <img src="{% static '/images/youtube.png' %}" alt="">
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+        
 
   <!-- end info_section -->
+
+  <!-- footer section -->
+  <section class="container-fluid footer_section ">
+    <div class="container">
+      <p>
+        &copy; <span id="displayYear"></span> Все права защищены
+        <a href="https://html.design/"></a>
+      </p>
+    </div>
+  </section>
+  <!-- end  footer section -->
+
+
+  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.js"></script>
+  <script type="text/javascript" src="js/custom.js"></script>
+
+
+</body>
+
+</html>
 
 {% endblock %}

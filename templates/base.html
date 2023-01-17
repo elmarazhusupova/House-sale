@@ -38,10 +38,12 @@
               <div class="User_option">
                 <li class="">
                   <a class="mr-4" href="">
-                    Login
+                    <li>
+                    Регистрация
+                  </li>
                   </a>
                   <a class="" href="">
-                    Sign up
+                    Логин
                   </a>
                 </li>
               </div>
@@ -62,11 +64,11 @@
             </div>
             <div id="myNav" class="overlay">
               <div class="overlay-content">
-                <a href="index.html">HOME</a>
-                <a href="about.html">ABOUT</a>
-                <a href="house.html">HOUSE</a>
-                <a href="price.html">PRICING</a>
-                <a href="contact.html">CONTACT US</a>
+                <a href="{% url 'index' %}">ГЛАВНАЯ</a>
+                <a href="{% url 'about' %}">О НАС</a>
+                <a href="{% url 'house' %}">ДОМА</a>
+                <a href="{% url 'price' %}">ЦЕНЫ</a>
+                <a href="{% url 'contacts' %}">КОНТАКТЫ</a>
               </div>
             </div>
           </div>

@@ -17,15 +17,6 @@ class AboutApartment(models.Model):
         return self.about 
 
 
-class Contact(models.Model):
-    name = models.CharField(max_length=200)
-    email = models.EmailField()
-    number = models.IntegerField()
-    message = models.TextField()
-    
-    def str(self):
-        return self.message
-
 
 class ClientFeedback(models.Model):
     name = models.CharField("Имя", max_length=100)
@@ -34,3 +25,12 @@ class ClientFeedback(models.Model):
 
     def __str__(self):
         return self.name         
+
+
+class Deal(models.Model):
+    banner = models.CharField(max_length=255)
+    desc = models.TextField()        
+
+    def __str__(self):
+        return self.banner 
+
