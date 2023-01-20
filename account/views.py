@@ -1,34 +1,12 @@
-# from django.shortcuts import render, redirect
-# from django.contrib.auth.forms import UserCreationForm
-# from .forms import CreateUserForm
-# from django.contrib import messages
-
-
-# def registerPage(request):
-#     form = CreateUserForm()
-
-#     if request.method == 'POST':
-#         form = CreateUserForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             user = form.cleaned_data.get('username')
-#             messages.success(request, 'Account was successfully created!')
-#             return redirect('login')
-
-#     context = {'form':form}
-#     return render(request, 'account/register.html', context)
-
-
-
-# def loginPage(request):
-#     context = {}
-#     return render(request, 'account/login.html', context)
-
-
+from django.shortcuts import render, redirect
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django import forms
+from django.contrib.auth import get_user_model
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
-from django.contrib.auth import get_user_model
+User = get_user_model()
+
 
 def registerView(request):
     if request.method == 'POST':
@@ -54,8 +32,10 @@ def registerView(request):
     else:
         return render(request, 'account/register.html')
 
-def loginView(request):
 
+def loginView(request):
+    form = UserLoginForm(request.POST)
+    context = {'form': form}
     if request.method == 'POST':
         email = request.POST['email']
         password = request.POST['password']
@@ -68,4 +48,13 @@ def loginView(request):
             messages.info(request, 'Credentials Invalid')
             return redirect('register')
     else:
-        return render(request, 'account/register.html') 
+        return render(request, 'account/login.html', context)
+
+
+class UserLoginForm(AuthenticationForm):
+    class Meta:
+        model = User
+        fields = ['email', 'password']
+
+    username = forms.CharField(widget=forms.TextInput(), label='email')
+    password = forms.CharField(widget=forms.PasswordInput(), label='password')

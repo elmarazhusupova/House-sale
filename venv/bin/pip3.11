@@ -1,4 +1,4 @@
-#!/Users/elmarazhusupova/Desktop/House-sale/venv/bin/python3.11
+#!/Users/elmarazhusupova/House-sale/venv/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys
