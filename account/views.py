@@ -2,9 +2,7 @@ from django.shortcuts import render, redirect
 
 from django.views.generic import FormView, CreateView, TemplateView
 from django.contrib.auth import login, logout, authenticate
-from django.urls import reverse_lazy
 from django.http import HttpResponse
-# Create your views here.
 
 from account.forms import LoginForm, UserRegisterForm
 from account.models import User
@@ -15,9 +13,7 @@ class LoginView(FormView):
     template_name = "account/login.html"
 
     def form_valid(self, form):
-        data = form.cleaned_data #{"password":"admin", "email":"admin@gmail.com"}
-        # cleaned_data хранилище данных из формы в виде dict
-        print(data)
+        data = form.cleaned_data
         email = data["email"]
         password = data["password"]
         user = authenticate(email=email, password=password)
@@ -35,46 +31,19 @@ def user_logout(request):
     return redirect("index")
 
 
-from django.http import HttpResponseRedirect
-from account.utils import send_activation_email
+def register(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        password2 = request.POST.get('password_confirm')
 
-
-class UserRegisterView(CreateView):
-    template_name = "account/register.html"
-    form_class = UserRegisterForm
-    model = User
-    success_url = reverse_lazy('login')
-
-    def form_valid(self, form):
-        user = form.save(commit=False)
-        user.is_active = False
-        user.save()
-        redirect('index')
-        send_activation_email(user, request=self.request, to_email=user.email)
-        return super().form_valid(form)
-
-
-# class RegisterDoneView(TemplateView):
-#     template_name = "register_done.html"
-
-
-from django.utils.http import urlsafe_base64_decode
-from django.utils.encoding import force_str
-from django.contrib.auth.tokens import default_token_generator
-from django.http import Http404
-
-
-# def activate_account(request, uidb64, token):
-#     try:
-#         uid = int(force_str(urlsafe_base64_decode(uidb64)))
-#         user = User.objects.get(id=uid)
-#     except (ValueError, User.DoesNotExist, TypeError):
-#         user = None
-#     print(token)
-#     print(user)
-#     if user is not None and default_token_generator.check_token(user, token):
-#         user.is_active = True
-#         login(request, user)
-#         return redirect(reverse_lazy('index'))
-#     raise Http404
+        if password == password2:
+                user = User.objects.create_user(username=username, email=email, password=password)
+                user.save()
+                return redirect('index')
+        else:
+            return redirect('register')
+    else:
+        return render(request, 'account/register.html')
 

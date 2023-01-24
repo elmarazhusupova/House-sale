@@ -35,8 +35,6 @@ class UserManager(BaseUserManager):
 class User(AbstractUser, PermissionsMixin):
     email = models.EmailField("Электронная почта", unique=True)
     username = models.CharField(max_length=250)
-    password1 = models.CharField(max_length=250)
-    password2 = models.CharField(max_length=200)
 
     USERNAME_FIELD = 'email'  # Какое поле будет использоваться в логинке
     REQUIRED_FIELDS = []
