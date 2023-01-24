@@ -25,24 +25,24 @@
   <!-- responsive style -->
   <link href="{% static '/css/responsive.css' %}" rel="stylesheet" />
 
-  {% if request.user.is_authenticated %}
-     <p><a href="{% url 'logout' %}">Log Out</a></p>
-  {% else %}
-  <li>
-    <a href="{% url 'login' %}">
-      <button type="button" class="login-btn">
-        <i class="flaticon-profile"></i>Логин
-      </button>
-    </a>
-  </li>
-  <li>
-    <a href="{% url 'register' %}">
-      <button type="button" class="login-btn">
-        Регистрация
-      </button>
-    </a>
-  </li>
-  {% endif %}
+<!--  {% if request.user.is_authenticated %}-->
+<!--     <p><a href="{% url 'logout' %}">Log Out</a></p>-->
+<!--  {% else %}-->
+<!--  <li>-->
+<!--    <a href="{% url 'login' %}">-->
+<!--      <button type="button" class="login-btn">-->
+<!--        <i class="flaticon-profile"></i>Логин-->
+<!--      </button>-->
+<!--    </a>-->
+<!--  </li>-->
+<!--  <li>-->
+<!--    <a href="{% url 'register' %}">-->
+<!--      <button type="button" class="login-btn">-->
+<!--        Регистрация-->
+<!--      </button>-->
+<!--    </a>-->
+<!--  </li>-->
+<!--  {% endif %}-->
 
 
 </head>
