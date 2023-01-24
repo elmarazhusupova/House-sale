@@ -36,16 +36,21 @@
           <div class="navbar-collapse" id="">
             <ul class="navbar-nav justify-content-between ">
               <div class="User_option">
-                <li class="">
+<!--                  {% if not request.user.is_authenticated %}-->
+                  <li class="">
                   <a class="mr-4" href="{% url 'register' %}">
-                    <li>
                     Регистрация
+                  </a>
                   </li>
                   </a>
                   <a class="" href="{% url 'login' %}">
                     Логин
                   </a>
                 </li>
+<!--                {% else %}-->
+<!--                <a href=""> {{request.user.email}}</a>-->
+<!--                {% endif %}-->
+
               </div>
             </ul>
 

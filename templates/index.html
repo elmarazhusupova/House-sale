@@ -24,11 +24,32 @@
   <link href="{% static '/css/style.css' %}" rel="stylesheet" />
   <!-- responsive style -->
   <link href="{% static '/css/responsive.css' %}" rel="stylesheet" />
+
+  {% if request.user.is_authenticated %}
+     <p><a href="{% url 'logout' %}">Log Out</a></p>
+  {% else %}
+  <li>
+    <a href="{% url 'login' %}">
+      <button type="button" class="login-btn">
+        <i class="flaticon-profile"></i>Логин
+      </button>
+    </a>
+  </li>
+  <li>
+    <a href="{% url 'register' %}">
+      <button type="button" class="login-btn">
+        Регистрация
+      </button>
+    </a>
+  </li>
+  {% endif %}
+
+
 </head>
 
 
 <body>
- 
+
     <!-- slider section -->
     <section class="slider_section ">
       <div class="container-fluid">
@@ -99,10 +120,10 @@
     <div class="container-fluid">
       <div class="heading_container">
         <h2>
-          House For Sale
+          Дома на продаже
         </h2>
         <p>
-          There are many variations of passages of Lorem Ipsum available, but the
+         Здесь есть лишь маленькая часть квартир, для удобсвта и экономии времени возпользуйтесть нашими услугами
         </p>
       </div>
       <div class="sale_container">
@@ -112,10 +133,10 @@
           </div>
           <div class="detail-box">
             <h6>
-              apertments house
+             3-комн. кв., 80 м2, 7 этаж из 12
             </h6>
             <p>
-              There are many variations of passages of Lorem Ipsum available, but
+             Бишкек, Молодая Гвардия, Калык Акиева 12/Боконбаева
             </p>
           </div>
         </div>
@@ -125,10 +146,10 @@
           </div>
           <div class="detail-box">
             <h6>
-              apertments house
+              1-комн. кв., 54 м2, 10 этаж из 13
             </h6>
             <p>
-              There are many variations of passages of Lorem Ipsum available, but
+              Бишкек, Средний Джал м-н, Тыналиева 1/3
             </p>
           </div>
         </div>
@@ -138,10 +159,10 @@
           </div>
           <div class="detail-box">
             <h6>
-              apertments house
+              Дом, 6 и более комнат, 354 м2
             </h6>
             <p>
-              There are many variations of passages of Lorem Ipsum available, but
+              Бишкек, Таш Рабат, Карасаева 49/Матросова
             </p>
           </div>
         </div>
@@ -151,10 +172,10 @@
           </div>
           <div class="detail-box">
             <h6>
-              apertments house
+              2-комн. кв., 86 м2, 4 этаж из 11
             </h6>
             <p>
-              There are many variations of passages of Lorem Ipsum available, but
+              Бишкек, Магистраль, м-н. Асанбай, ул. Аалы Токомбаева
             </p>
           </div>
         </div>
@@ -164,10 +185,10 @@
           </div>
           <div class="detail-box">
             <h6>
-              apertments house
+              2-комн. кв., 50 м2, 3 этаж из 5
             </h6>
             <p>
-              There are many variations of passages of Lorem Ipsum available, but
+              Бишкек, 5 м-н
             </p>
           </div>
         </div>
@@ -177,31 +198,31 @@
           </div>
           <div class="detail-box">
             <h6>
-              apertments house
+              1-комн. кв., 52 м2, 6 этаж из 12
             </h6>
             <p>
-              There are many variations of passages of Lorem Ipsum available, but
+              Бишкек, 7 м-н, Жукеева-Пудовкина 26/2
             </p>
           </div>
         </div>
       </div>
       <div class="btn-box">
-        <a href="">
-          Find More
+        <a href="https://www.house.kg/">
+          Больше
         </a>
       </div>
     </div>
   </section>
 
   <!-- end sale section -->
-  
+
   <!-- price section -->
 
   <section class="price_section layout_padding-bottom">
     <div class="container">
       <div class="heading_container">
         <h2>
-          Наши цены 
+          Наши цены
         </h2>
         <p>
           Стоимость услуги может различаться от пакета
@@ -233,13 +254,13 @@
                   Варианты от 3-6
                 </li>
                 <li>
-                  квартир. 
+                  квартир.
                 </li>
               </ul>
             </div>
           </div>
           <div class="btn-box">
-            <a href="">
+            <a href="https://my.forms.app/templatesru/payment-collection-form">
               Купить
             </a>
           </div>
@@ -269,19 +290,19 @@
                   потребности клиента
                 </li>
                 <li>
-                  Время нахождение от 5-7 
+                  Время нахождение от 5-7
                 </li>
                 <li>
                   дней
                 </li>
                 <li>
-                  
+
                 </li>
               </ul>
             </div>
           </div>
           <div class="btn-box">
-            <a href="">
+            <a href="https://my.forms.app/templatesru/payment-collection-form">
               Купить
             </a>
           </div>
@@ -314,7 +335,7 @@
                   Варианты квартир от 10 до 15
                 </li>
                 <li>
-                  связь с нами 24/7 доступно 
+                  связь с нами 24/7 доступно
                 </li>
                 <li>
                  Даем гарантию на переезд
@@ -323,7 +344,7 @@
             </div>
           </div>
           <div class="btn-box">
-            <a href="">
+            <a href="https://my.forms.app/templatesru/payment-collection-form">
               Купить
             </a>
           </div>
@@ -421,7 +442,7 @@
               <h3>
                 10000+
               </h3>
-              <h5>                
+              <h5>
                 Довольные клиенты
               </h5>
             </div>
@@ -453,8 +474,8 @@
 
   <!-- end us section -->
 
- 
- <!-- client secction --> 
+
+ <!-- client secction -->
  <section class="client_section layout_padding">
   <div class="container-fluid">
     <div class="heading_container">
@@ -527,7 +548,7 @@
                   <div class="alert alert-danger">
                     <strong>Спасибо за отклик!</strong>
                   </div>
-              {% else %}    
+              {% else %}
                   <div>
                     {{ form.name }}
                   </div>
@@ -542,7 +563,7 @@
                     </div>
                   <div class="d-flex ">
                     <button>
-                     Отправить 
+                     Отправить
                     </button>
                   </div>
                 {% endif %}
@@ -634,7 +655,7 @@
             </ul>
           </div>
         </div>
-        
+
 
   <!-- end info_section -->
 
@@ -654,7 +675,9 @@
   <script type="text/javascript" src="js/bootstrap.js"></script>
   <script type="text/javascript" src="js/custom.js"></script>
 
-
+      </div>
+    </div>
+  </section>
 </body>
 
 </html>

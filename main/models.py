@@ -1,7 +1,6 @@
 from django.db import models
 
 
-
 class Banner(models.Model):
     banner = models.TextField(verbose_name='Название банера')
 
@@ -15,7 +14,6 @@ class AboutApartment(models.Model):
 
     def __str__(self):
         return self.about 
-
 
 
 class ClientFeedback(models.Model):
@@ -34,3 +32,11 @@ class Deal(models.Model):
     def __str__(self):
         return self.banner 
 
+
+class HouseSale(models.Model):
+    banner = models.CharField(max_length=255)
+    desc = models.TextField()
+    img = models.ImageField(upload_to='posts/')
+
+    def __str__(self):
+        return self.banner
