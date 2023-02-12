@@ -81,7 +81,6 @@ def house(request):
     return render(request, 'house.html')
 
 
-# def houseSale(request):
-#     banner3 = HouseSale.objects.all()
-#     content = {'banner3': banner3}
-#     return render(request, content)
+def listof(request):
+    return render(request, 'listof.html')
+

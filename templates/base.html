@@ -21,7 +21,7 @@
   <!-- Custom styles for this template -->
   <link href="{% static '/css/style.css' %}" rel="stylesheet" />
   <!-- responsive style -->
-  <link href="{% static '/css/responsive.css' %}" rel="stylesheet" />
+<!--  <link href="{% static '/css/responsive.css' %}" rel="stylesheet" />-->
 </head>
 
 <body>
@@ -84,10 +84,17 @@
     <!-- end header section -->
 
   {% block content %}
+  <!-- footer section -->
+  <section class="container-fluid footer_section ">
+    <div class="container">
+      <p>
+        &copy; <span id="displayYear"></span> Все права защищены
+        <a href="https://html.design/"></a>
+      </p>
+    </div>
+  </section>
+  <!-- end  footer section -->
+
 
   {% endblock %}
-
-
-  <script type="text/javascript" src="{% static '/js/jquery-3.4.1.min.js' %}"></script>
-  <script type="text/javascript" src="{% static '/js/bootstrap.js' %}"></script>
-  <script type="text/javascript" src="{% static '/js/custom.js' %}"></script>
+  </div>
