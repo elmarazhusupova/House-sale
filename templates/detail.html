@@ -1,0 +1,36 @@
+  <!-- about section -->
+{% load static %}
+
+  <br>
+  <section class="about_section layout_padding-bottom">
+    <div class="square-box">
+      <img src="" alt="">
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="img-box">
+            <img src="{{ obj.photo.url}}" alt="" width="400" height="350">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="detail-box">
+            <div class="heading_container">
+              <h2>
+                {{obj.banner}}
+              </h2>
+            </div>
+            <p>
+              <p>{{obj.desc}}<br> </p>
+            <p>{{obj.address}}<br> </p>
+            <p>{{obj.price}}<br> </p>
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  </center>
+
+  <!-- end about section -->

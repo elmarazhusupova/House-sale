@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from .models import *
 from .forms import ContactForm
@@ -12,6 +12,7 @@ def index(request):
     feedback = ClientFeedback.objects.all()
     banner2 = Deal.objects.all()
     posts = HouseSale.objects.all()
+    obj = HousePost.objects.all()[:6]
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
@@ -23,7 +24,7 @@ def index(request):
         form = ContactForm()
 
     content = {'banner': banner, 'about': about, 'feedback': feedback,
-               'form': form, 'banner2': banner2, 'posts': posts}
+               'form': form, 'banner2': banner2, 'posts': posts, 'obj': obj}
     return render(request, 'index.html', content)
 
 
@@ -81,6 +82,15 @@ def house(request):
     return render(request, 'house.html')
 
 
-def listof(request):
-    return render(request, 'listof.html')
+def house_post(request):
+    obj = HousePost.objects.all()
+    # search = request.GET.get('', '')
+
+    return render(request, 'house_post.html', {'obj': obj})
+
+
+def detail_page(request, id):
+    obj = get_object_or_404(HousePost, pk=id)
+    return render(request, 'detail.html', {'obj': obj})
+
 

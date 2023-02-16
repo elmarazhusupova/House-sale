@@ -24,26 +24,12 @@
   <link href="{% static '/css/style.css' %}" rel="stylesheet" />
   <!-- responsive style -->
   <link href="{% static '/css/responsive.css' %}" rel="stylesheet" />
+  <style>
+   h6{
+   color:black;
+   }
 
-<!--  {% if request.user.is_authenticated %}-->
-<!--     <p><a href="{% url 'logout' %}">Log Out</a></p>-->
-<!--  {% else %}-->
-<!--  <li>-->
-<!--    <a href="{% url 'login' %}">-->
-<!--      <button type="button" class="login-btn">-->
-<!--        <i class="flaticon-profile"></i>Логин-->
-<!--      </button>-->
-<!--    </a>-->
-<!--  </li>-->
-<!--  <li>-->
-<!--    <a href="{% url 'register' %}">-->
-<!--      <button type="button" class="login-btn">-->
-<!--        Регистрация-->
-<!--      </button>-->
-<!--    </a>-->
-<!--  </li>-->
-<!--  {% endif %}-->
-
+</style>
 
 </head>
 
@@ -127,90 +113,79 @@
         </p>
       </div>
       <div class="sale_container">
+        {% for g in obj %}
         <div class="box">
           <div class="img-box">
-            <img src="{% static '/images/s-1.jpg' %}" alt="">
+            <img src="{{ g.photo.url }}" alt="">
           </div>
           <div class="detail-box">
             <h6>
-             3-комн. кв., 80 м2, 7 этаж из 12
+              <a href="{% url 'detail' g.id %}">
+                <h6>{{g.banner}}</h6>
+              </a>
             </h6>
-            <p>
-             Бишкек, Молодая Гвардия, Калык Акиева 12/Боконбаева
-            </p>
           </div>
         </div>
-        <div class="box">
-          <div class="img-box">
-            <img src="{% static '/images/s-2.jpg' %}" alt="">
-          </div>
-          <div class="detail-box">
-            <h6>
-              1-комн. кв., 54 м2, 10 этаж из 13
-            </h6>
-            <p>
-              Бишкек, Средний Джал м-н, Тыналиева 1/3
-            </p>
-          </div>
-        </div>
-        <div class="box">
-          <div class="img-box">
-            <img src="{% static '/images/s-3.jpg' %}" alt="">
-          </div>
-          <div class="detail-box">
-            <h6>
-              Дом, 6 и более комнат, 354 м2
-            </h6>
-            <p>
-              Бишкек, Таш Рабат, Карасаева 49/Матросова
-            </p>
-          </div>
-        </div>
-        <div class="box">
-          <div class="img-box">
-            <img src="{% static '/images/s-4.jpg' %}" alt="">
-          </div>
-          <div class="detail-box">
-            <h6>
-              2-комн. кв., 86 м2, 4 этаж из 11
-            </h6>
-            <p>
-              Бишкек, Магистраль, м-н. Асанбай, ул. Аалы Токомбаева
-            </p>
-          </div>
-        </div>
-        <div class="box">
-          <div class="img-box">
-            <img src="{% static '/images/s-5.jpg' %}" alt="">
-          </div>
-          <div class="detail-box">
-            <h6>
-              2-комн. кв., 50 м2, 3 этаж из 5
-            </h6>
-            <p>
-              Бишкек, 5 м-н
-            </p>
-          </div>
-        </div>
-        <div class="box">
-          <div class="img-box">
-            <img src="{% static '/images/s-6.jpg' %} " alt="">
-          </div>
-          <div class="detail-box">
-            <h6>
-              1-комн. кв., 52 м2, 6 этаж из 12
-            </h6>
-            <p>
-              Бишкек, 7 м-н, Жукеева-Пудовкина 26/2
-            </p>
-          </div>
-        </div>
-      </div>
+        {%endfor%}
+<!--        <div class="box">-->
+<!--          <div class="img-box">-->
+<!--            <img src="{% static '/images/s-3.jpg' %}" alt="">-->
+<!--          </div>-->
+<!--          <div class="detail-box">-->
+<!--            <h6>-->
+<!--              Дом, 6 и более комнат, 354 м2-->
+<!--            </h6>-->
+<!--            <p>-->
+<!--              Бишкек, Таш Рабат, Карасаева 49/Матросова-->
+<!--            </p>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="box">-->
+<!--          <div class="img-box">-->
+<!--            <img src="{% static '/images/s-4.jpg' %}" alt="">-->
+<!--          </div>-->
+<!--          <div class="detail-box">-->
+<!--            <h6>-->
+<!--              2-комн. кв., 86 м2, 4 этаж из 11-->
+<!--            </h6>-->
+<!--            <p>-->
+<!--              Бишкек, Магистраль, м-н. Асанбай, ул. Аалы Токомбаева-->
+<!--            </p>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="box">-->
+<!--          <div class="img-box">-->
+<!--            <img src="{% static '/images/s-5.jpg' %}" alt="">-->
+<!--          </div>-->
+<!--          <div class="detail-box">-->
+<!--            <h6>-->
+<!--              2-комн. кв., 50 м2, 3 этаж из 5-->
+<!--            </h6>-->
+<!--            <p>-->
+<!--              Бишкек, 5 м-н-->
+<!--            </p>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="box">-->
+<!--          <div class="img-box">-->
+<!--            <img src="{% static '/images/s-6.jpg' %} " alt="">-->
+<!--          </div>-->
+<!--          <div class="detail-box">-->
+<!--            <h6>-->
+<!--              1-комн. кв., 52 м2, 6 этаж из 12-->
+<!--            </h6>-->
+<!--            <p>-->
+<!--              Бишкек, 7 м-н, Жукеева-Пудовкина 26/2-->
+<!--            </p>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
       <div class="btn-box">
-        <a href="{% url 'listof' %}">
+        <a href="{% url 'house_post' %}">
           Больше
         </a>
       </div>
+    </div>
     </div>
   </section>
 

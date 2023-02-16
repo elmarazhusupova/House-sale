@@ -40,3 +40,14 @@ class HouseSale(models.Model):
 
     def __str__(self):
         return self.banner
+
+
+class HousePost(models.Model):
+    banner = models.CharField(max_length=200)
+    desc = models.CharField(max_length=255)
+    photo = models.ImageField(upload_to='posts')
+    price = models.CharField(max_length=200, blank=True, null=True)
+    address = models.CharField(max_length=200, blank=True, null=True)
+
+    def __str__(self):
+        return self.banner
