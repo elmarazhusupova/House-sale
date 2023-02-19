@@ -10,5 +10,4 @@ urlpatterns = [
     path('house', house, name='house'),
     path('house_post/', house_post, name='house_post'),
     path('<int:id>', views.detail_page, name='detail'),
-    path('house_post', views.search)
 ]

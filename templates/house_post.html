@@ -107,8 +107,8 @@
         </h2>
       </div>
 
-      <form action="/house_post/" method="GET">
-        <input type="text"name="q/">
+      <form action="{% url 'house_post' %}" method="GET">
+        <input type="text"name="search">
         <input type="submit">
       </form>
 

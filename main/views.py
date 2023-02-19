@@ -4,7 +4,7 @@ from .models import *
 from .forms import ContactForm
 from django.template.loader import get_template
 from django.core.mail import EmailMultiAlternatives
-
+from django.db.models import Q
 
 def index(request):
     banner = Banner.objects.all()
@@ -83,9 +83,12 @@ def house(request):
 
 
 def house_post(request):
-    obj = HousePost.objects.all()
-    # search = request.GET.get('', '')
-
+    search = request.GET.get('search', '')
+    if search:
+        obj = HousePost.objects.filter(Q(banner__icontains=search))
+    else:
+        obj = HousePost.objects.all()
+    # obj = HousePost.objects.all()
     return render(request, 'house_post.html', {'obj': obj})
 
 
